@@ -1,4 +1,26 @@
-#![allow(dead_code)]
+fn next_round(n: i32) -> i32 {
+    match n {
+        0 => 99,
+        _ => n,
+    }
+}
+
+fn bottles<'a>(n: i32) -> &'a str {
+    match n {
+        0 => "No more bottles of beer",
+        1 => "1 bottle of beer",
+        _ => format!("{} bottles of beer", n).as_str(),
+    }
+}
+
+fn action<'a>(n: i32) -> &'a str {
+    match n {
+        0 => "Go to the store and buy some more",
+        1 => "Take it down pass it around",
+        _ => "Take one down pass it around",
+    }
+}
+
 pub fn verse(n: i32) -> String {
     if n == 0 {
         return final_verse();
@@ -10,9 +32,7 @@ pub fn sing(start: i32, end: i32) -> String {
     let mut song = String::new();
     let reversed = start > end;
     if reversed {
-        println!("REVERSE");
         for i in (end..=start).rev() {
-            println!("I: {}", i);
             if i == 0 {
                 song += &final_verse();
             } else {
